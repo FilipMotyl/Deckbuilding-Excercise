@@ -1372,7 +1372,7 @@ MonoBehaviour:
   handArea: {fileID: 1105766180}
   deckManager: {fileID: 811534709}
   splineContainer: {fileID: 1105766179}
-  maxHandSize: 5
+  maxHandSize: 6
   cardSpacing: 150
   minCardSpacingOnSpline: 0.15
   maxCardSpacingOnSpline: 0.753
