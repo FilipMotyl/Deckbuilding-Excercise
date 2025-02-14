@@ -63,7 +63,6 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         {
             transform.DOMove(Input.mousePosition, 0.1f).SetEase(Ease.OutQuad);
         }
-
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -83,6 +82,19 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
                 transform.DOScale(targetScale, SetupTimeValue);
             }
             SetIsAnyCardDragged(false);
+        }
+    }
+    public void OnDrop(PointerEventData eventData)
+    {
+        Card droppedCard;
+        if (eventData.pointerDrag.gameObject == this)
+        {
+            return;
+        }
+        if (eventData.pointerDrag.TryGetComponent<Card>(out droppedCard))
+        {
+            OnCardOnCardDropped?.Invoke(this, droppedCard);
+            transform.DOScale(targetScale, SetupTimeValue);
         }
     }
 
@@ -116,16 +128,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     #endregion
 
-    public void OnDrop(PointerEventData eventData)
-    {
-        Card droppedCard;
-        if (eventData.pointerDrag.gameObject == this) return;
-        if (eventData.pointerDrag.TryGetComponent<Card>(out droppedCard))
-        {
-            OnCardOnCardDropped?.Invoke(this, droppedCard);
-            transform.DOScale(targetScale, SetupTimeValue);
-        }
-    }
+
     public CardSO GetCardData()
     {
         return cardData;
