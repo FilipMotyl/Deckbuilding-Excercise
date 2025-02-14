@@ -30,7 +30,6 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     [Category("Values")]
     [SerializeField] private float hoverScaleMultiplier = 1.5f;
     [SerializeField] private Vector3 targetScale = new Vector3(0.25f, 0.25f, 0.25f);
-    [SerializeField] private float dragSpeed = 20f;
 
     [Category("Debug Only")]
     [SerializeField] private CardState State;
@@ -100,8 +99,6 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     #endregion
 
-
-
     #region Hovering
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -127,7 +124,6 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     }
 
     #endregion
-
 
     public CardSO GetCardData()
     {

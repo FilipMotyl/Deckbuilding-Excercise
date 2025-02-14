@@ -15,7 +15,6 @@ public class HandManager : MonoBehaviour
 
     [Category("Values")]
     [SerializeField] private int maxHandSize = 1;
-    [SerializeField] private float cardSpacing = 150f;
     [Range(0f, 1f)][SerializeField] private float minCardSpacingOnSpline = 0.1f;
     [Range(0f, 1f)][SerializeField] private float maxCardSpacingOnSpline = 0.75f;
     [Range(0f, 1f)][SerializeField] private float hoverShiftAmount = 0.08f;
